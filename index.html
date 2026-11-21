@@ -1,0 +1,422 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- =====================================
+         DOCUMENT SETTINGS
+    ====================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="theme-color"
+        content="#171322"
+    >
+
+    <meta
+        name="description"
+        content="SPEC-TRUM STORIES: A Thousand Ways to Be. An interactive visual novel about identity, courage, privacy, and self-expression."
+    >
+
+    <meta
+        name="author"
+        content="Group 5 — TWINKLER BELLS"
+    >
+
+    <meta
+        name="color-scheme"
+        content="dark"
+    >
+
+    <meta
+        name="application-name"
+        content="SPEC-TRUM STORIES"
+    >
+
+    <title>SPEC-TRUM STORIES: A Thousand Ways to Be</title>
+
+
+    <!-- =====================================
+         STYLESHEET
+    ====================================== -->
+
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script
+        src="./script.js"
+        defer
+    ></script>
+
+</head>
+
+
+<body>
+
+    <!-- =====================================
+         MAIN MENU
+    ====================================== -->
+
+    <main
+        id="main-menu"
+        class="main-menu"
+        aria-label="Main menu"
+    >
+
+        <!-- BACKGROUND VIDEO -->
+
+        <video
+            id="menu-video"
+            class="menu-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            aria-hidden="true"
+            tabindex="-1"
+        >
+
+            <source
+                src="./assets/backgrounds/main-menu.mp4"
+                type="video/mp4"
+            >
+
+            Your browser does not support background video.
+
+        </video>
+
+
+        <!-- BACKGROUND MUSIC -->
+
+        <audio
+            id="menu-music"
+            loop
+            preload="auto"
+        >
+
+            <source
+                src="./assets/music/mainmenu.mp3"
+                type="audio/mpeg"
+            >
+
+            Your browser does not support audio playback.
+
+        </audio>
+
+
+        <!-- MENU OVERLAY -->
+
+        <div
+            class="menu-overlay"
+            aria-hidden="true"
+        ></div>
+
+
+        <!-- MENU CONTENT -->
+
+        <div class="menu-content">
+
+            <!-- GAME TITLE -->
+
+            <header class="title-container">
+
+                <p class="title-label">
+                    AN INTERACTIVE STORY
+                </p>
+
+                <h1 class="game-title">
+                    SPEC-TRUM
+                    <span>STORIES</span>
+                </h1>
+
+                <p class="game-subtitle">
+                    A Thousand Ways to Be
+                </p>
+
+                <div
+                    class="title-divider"
+                    aria-hidden="true"
+                ></div>
+
+            </header>
+
+
+            <!-- MAIN MENU NAVIGATION -->
+
+            <nav
+                class="menu-buttons"
+                aria-label="Main menu navigation"
+            >
+
+                <button
+                    type="button"
+                    class="menu-button"
+                    id="begin-button"
+                >
+                    Begin Story
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-button"
+                    id="continue-button"
+                >
+                    Continue
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-button"
+                    id="settings-button"
+                >
+                    Settings
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-button"
+                    id="credits-button"
+                >
+                    Credits
+                </button>
+
+            </nav>
+
+
+            <!-- MENU FOOTER -->
+
+            <footer class="menu-footer">
+                WE ARE STORIES STILL BEING WRITTEN
+            </footer>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================
+         STORY SCREEN
+    ====================================== -->
+
+    <main
+        id="story-screen"
+        class="story-screen"
+        aria-label="Interactive story"
+        hidden
+    >
+
+        <!-- ANIMATED BACKGROUND -->
+
+        <div
+            class="story-background"
+            aria-hidden="true"
+        ></div>
+
+
+        <!-- FLOATING PARTICLES -->
+
+        <div
+            class="particle-layer"
+            id="particle-layer"
+            aria-hidden="true"
+        ></div>
+
+
+
+        <!-- =================================
+             STORY HEADER
+        ================================== -->
+
+        <header class="story-header">
+
+            <!-- MENU BUTTON -->
+
+            <button
+                type="button"
+                class="story-menu-button"
+                id="story-menu-button"
+                aria-label="Open story menu"
+            >
+                MENU
+            </button>
+
+
+            <!-- PROJECT NAME -->
+
+            <div
+                class="story-brand"
+                aria-label="SPEC-TRUM STORIES"
+            >
+                SPEC-TRUM STORIES
+            </div>
+
+
+            <!-- SCENE COUNTER -->
+
+            <div
+                class="scene-counter"
+                id="scene-counter"
+                aria-live="polite"
+                aria-atomic="true"
+            >
+                SCENE 01
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================
+             MAIN STORY CONTENT
+        ================================== -->
+
+        <section
+            class="story-content"
+            aria-label="Current story scene"
+        >
+
+            <!-- SCENE TITLE -->
+
+            <header class="scene-title-container">
+
+                <p
+                    class="scene-type"
+                    id="scene-type"
+                >
+                    OPENING
+                </p>
+
+
+                <h1
+                    class="scene-heading"
+                    id="scene-heading"
+                >
+                    EXPOSITION
+                </h1>
+
+
+                <div
+                    class="story-divider"
+                    aria-hidden="true"
+                ></div>
+
+            </header>
+
+
+
+            <!-- =================================
+                 SCENE ILLUSTRATION
+            ================================== -->
+
+            <figure class="scene-visual">
+
+                <img
+                    id="scene-visual-image"
+                    src="./assets/visuals/exposition.png"
+                    alt="Illustration for the opening scene of Ari's story"
+                    loading="eager"
+                    decoding="async"
+                >
+
+            </figure>
+
+
+
+            <!-- =================================
+                 DIALOGUE SECTION
+            ================================== -->
+
+            <section
+                class="dialogue-container"
+                aria-label="Story dialogue"
+            >
+
+                <!-- DIALOGUE BOX -->
+
+                <div class="dialogue-box">
+
+                    <!-- CHARACTER NAME -->
+
+                    <p
+                        class="character-name"
+                        id="character-name"
+                    >
+                        NARRATOR
+                    </p>
+
+
+                    <!-- DIALOGUE TEXT -->
+
+                    <p
+                        class="dialogue-text text-size-medium"
+                        id="dialogue-text"
+                        aria-live="polite"
+                        aria-atomic="true"
+                    ></p>
+
+
+                    <!-- NEXT BUTTON -->
+
+                    <button
+                        type="button"
+                        class="next-button"
+                        id="next-button"
+                        aria-label="Continue to the next dialogue"
+                    >
+                        NEXT ›
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- =================================
+                     STORY CHOICES
+                ================================== -->
+
+                <div
+                    class="choices-container"
+                    id="choices-container"
+                    role="group"
+                    aria-label="Choose what happens next"
+                    hidden
+                ></div>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- =====================================
+             STORY FOOTER
+        ====================================== -->
+
+        <footer class="story-footer">
+            A THOUSAND WAYS TO BE
+        </footer>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,1481 @@
+
+/* =========================================
+   SPEC-TRUM STORIES
+   REFINED RESPONSIVE STYLESHEET
+========================================= */
+
+
+/* 01. GLOBAL RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+    background: #171322;
+    color-scheme: dark;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: hidden;
+
+    font-family: Georgia, "Times New Roman", serif;
+    background: #171322;
+    color: #f5efff;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid #e6caff;
+    outline-offset: 4px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* 02. MAIN MENU */
+
+.main-menu {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    isolation: isolate;
+    background: #171322;
+}
+
+.menu-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    object-fit: cover;
+    object-position: center;
+
+    z-index: -2;
+    pointer-events: none;
+}
+
+.menu-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(13, 10, 23, 0.68),
+            rgba(20, 14, 34, 0.30),
+            rgba(13, 10, 23, 0.68)
+        ),
+        linear-gradient(
+            0deg,
+            rgba(12, 9, 20, 0.78),
+            rgba(12, 9, 20, 0.08) 65%,
+            rgba(12, 9, 20, 0.35)
+        );
+}
+
+.menu-content {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 650px;
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    animation: menuEntrance 1.3s ease both;
+}
+
+
+/* 03. MAIN TITLE */
+
+.title-container {
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+.title-label {
+    color: #d5c4e8;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+    opacity: 0.9;
+}
+
+.game-title {
+    color: #f5efff;
+    font-size: clamp(36px, 10vw, 65px);
+    font-weight: 400;
+    letter-spacing: 5px;
+    line-height: 1.05;
+
+    text-shadow:
+        0 0 20px rgba(190, 140, 255, 0.35),
+        0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.game-title span {
+    display: block;
+    color: #c8a6ef;
+    font-size: 0.85em;
+    letter-spacing: 12px;
+    margin-top: 8px;
+}
+
+.game-subtitle {
+    color: #e0d5ed;
+    font-size: 14px;
+    font-style: italic;
+    letter-spacing: 2px;
+    margin-top: 18px;
+    opacity: 0.95;
+}
+
+.title-divider {
+    width: 100px;
+    height: 1px;
+    background: #b99add;
+    margin: 25px auto 0;
+    opacity: 0.85;
+
+    box-shadow: 0 0 10px rgba(185, 154, 221, 0.5);
+}
+
+
+/* 04. MENU BUTTONS */
+
+.menu-buttons {
+    width: 100%;
+    max-width: 280px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu-button {
+    position: relative;
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 18px;
+
+    background: rgba(30, 22, 45, 0.48);
+    border: 1px solid rgba(207, 179, 237, 0.55);
+
+    color: #f3eafa;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        letter-spacing 0.3s ease,
+        box-shadow 0.3s ease;
+
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.menu-button:hover {
+    background: rgba(151, 112, 194, 0.45);
+    border-color: #e4ceff;
+    letter-spacing: 4px;
+    transform: translateY(-2px);
+
+    box-shadow: 0 0 18px rgba(170, 125, 220, 0.18);
+}
+
+.menu-button:active {
+    transform: scale(0.97);
+    background: rgba(151, 112, 194, 0.65);
+}
+
+.menu-footer {
+    margin-top: 35px;
+    color: #c6b5d7;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    opacity: 0.75;
+}
+
+
+/* 05. DIALOG OVERLAY */
+
+.dialog-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 22px;
+    background: rgba(8, 6, 15, 0.82);
+
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+
+    animation: overlayFade 0.25s ease;
+}
+
+.dialog-box {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+
+    max-height: 85vh;
+    max-height: 85dvh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    padding: 30px 24px;
+
+    background: rgba(31, 24, 44, 0.97);
+    border: 1px solid rgba(199, 165, 232, 0.55);
+
+    box-shadow:
+        0 15px 60px rgba(0, 0, 0, 0.45),
+        0 0 25px rgba(150, 105, 220, 0.12);
+
+    text-align: center;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(190, 150, 230, 0.5) transparent;
+
+    animation: dialogEntrance 0.3s ease;
+}
+
+.dialog-box::-webkit-scrollbar {
+    width: 5px;
+}
+
+.dialog-box::-webkit-scrollbar-thumb {
+    background: rgba(190, 150, 230, 0.5);
+    border-radius: 10px;
+}
+
+.dialog-title {
+    color: #e5cef9;
+    font-size: 23px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.dialog-divider {
+    width: 65px;
+    height: 1px;
+    background: #b99add;
+    margin: 0 auto 22px;
+}
+
+.dialog-text {
+    color: #ded2e9;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+}
+
+.dialog-close {
+    width: 100%;
+    min-height: 43px;
+    margin-top: 8px;
+    padding: 10px;
+
+    background: rgba(151, 112, 194, 0.22);
+    border: 1px solid #a987ca;
+
+    color: #f3eafa;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.dialog-close:hover {
+    background: rgba(151, 112, 194, 0.5);
+}
+
+
+/* 06. SETTINGS PANEL */
+
+.settings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    color: #e4d8ef;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+.setting-item input[type="checkbox"] {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    accent-color: #b99add;
+    cursor: pointer;
+}
+
+.setting-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 100%;
+    color: #e4d8ef;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+.setting-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+#volume-value {
+    color: #cba8f0;
+    font-size: 12px;
+    font-weight: bold;
+    font-variant-numeric: tabular-nums;
+}
+
+.setting-range {
+    width: 100%;
+    height: 6px;
+
+    accent-color: #b99add;
+    cursor: pointer;
+}
+
+.setting-select {
+    width: 100%;
+    min-height: 42px;
+    padding: 9px 12px;
+
+    background: #251b35;
+    border: 1px solid rgba(199, 165, 232, 0.55);
+    border-radius: 4px;
+
+    color: #f3eafa;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+
+    outline: none;
+}
+
+.setting-select option {
+    background: #251b35;
+    color: #f3eafa;
+}
+
+.settings-note {
+    margin: 5px 0 15px;
+
+    color: #bba9ce;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-style: italic;
+    line-height: 1.6;
+    text-align: center;
+}
+
+
+/* 07. CREDITS PAGE */
+
+.credits-content {
+    width: 100%;
+    color: #ded2e9;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.8;
+
+    text-align: center;
+}
+
+.credits-project-title {
+    color: #e8d4ff;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+    font-weight: normal;
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 8px #b879f5,
+        0 0 18px rgba(168, 85, 247, 0.5);
+}
+
+.credits-subtitle {
+    color: #cba8f0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    font-style: italic;
+
+    margin-top: 5px;
+}
+
+.credits-tagline {
+    color: #bdaaca;
+    font-size: 10px;
+    line-height: 1.7;
+
+    margin-top: 12px;
+}
+
+.credits-content h4 {
+    color: #d9b5ff;
+
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    margin: 20px 0 10px;
+}
+
+.credits-content p {
+    margin-bottom: 12px;
+}
+
+.credits-content strong {
+    color: #e8d4ff;
+    font-weight: bold;
+}
+
+.credits-divider {
+    width: 55px;
+    height: 1px;
+
+    margin: 20px auto;
+
+    background: #a987ca;
+
+    box-shadow:
+        0 0 8px rgba(185, 154, 221, 0.5);
+}
+
+.credits-final-message {
+    color: #e8d4ff;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    font-style: italic;
+
+    margin-top: 5px;
+}
+
+.credits-closing {
+    color: #d5b5f5;
+
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    margin-top: 20px;
+}
+
+.credits-copyright {
+    margin-top: 25px;
+    padding-top: 15px;
+
+    border-top: 1px solid rgba(199, 165, 232, 0.25);
+
+    color: #a995bb;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    line-height: 2;
+
+    text-align: center;
+    opacity: 0.8;
+}
+
+
+/* 08. STORY SCREEN */
+
+.story-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    overflow: hidden;
+    isolation: isolate;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #171022;
+}
+
+
+/* 09. ANIMATED PURPLE GRADIENT */
+
+.story-background {
+    position: absolute;
+    inset: -30%;
+    z-index: -3;
+
+    background: linear-gradient(
+        125deg,
+        #160d29,
+        #35165b,
+        #211039,
+        #54247c,
+        #1b102d,
+        #392052
+    );
+
+    background-size: 400% 400%;
+    animation: purpleGradient 18s ease infinite;
+}
+
+.story-background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(174, 116, 255, 0.25),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(128, 73, 190, 0.28),
+            transparent 38%
+        );
+
+    animation: purpleGlow 8s ease-in-out infinite alternate;
+}
+
+
+/* 10. FLOATING PARTICLES */
+
+.particle-layer {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    bottom: -20px;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+    background: #e6caff;
+
+    opacity: 0;
+
+    box-shadow:
+        0 0 8px #d7aaff,
+        0 0 15px #a855f7;
+
+    animation: particleFloat linear infinite;
+}
+
+
+/* 11. STORY HEADER */
+
+.story-header {
+    position: relative;
+    z-index: 2;
+
+    flex-shrink: 0;
+    width: 100%;
+    padding: 18px 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    background: rgba(13, 8, 25, 0.28);
+    border-bottom: 1px solid rgba(218, 183, 255, 0.13);
+}
+
+.story-brand,
+.scene-counter {
+    color: #d9c3ee;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.story-menu-button {
+    padding: 9px 12px;
+
+    background: rgba(31, 19, 48, 0.65);
+    border: 1px solid rgba(212, 180, 244, 0.4);
+
+    color: #f1e4ff;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.story-menu-button:hover {
+    background: rgba(151, 112, 194, 0.4);
+}
+
+
+/* 12. STORY CONTENT */
+
+.story-content {
+    position: relative;
+    z-index: 1;
+
+    flex: 1;
+    min-height: 0;
+
+    width: 100%;
+    max-width: 950px;
+
+    margin: 0 auto;
+    padding: 20px 24px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 18px;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    scrollbar-width: thin;
+    scrollbar-color: rgba(190, 150, 230, 0.5) transparent;
+}
+
+.story-content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.story-content::-webkit-scrollbar-thumb {
+    background: rgba(190, 150, 230, 0.5);
+    border-radius: 10px;
+}
+
+
+/* 13. SCENE TITLE */
+
+.scene-title-container {
+    flex-shrink: 0;
+    width: 100%;
+
+    text-align: center;
+    margin-top: 12px;
+}
+
+.scene-type {
+    color: #c9a9e8;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.scene-heading {
+    color: #f3e8ff;
+
+    font-size: clamp(25px, 6vw, 42px);
+    font-weight: 400;
+    letter-spacing: 4px;
+    line-height: 1.2;
+
+    text-shadow:
+        0 0 5px #d8b4fe,
+        0 0 10px #a855f7,
+        0 0 20px #9333ea,
+        0 0 35px rgba(147, 51, 234, 0.7);
+
+    animation: headingGlow 3s ease-in-out infinite alternate;
+}
+
+.story-divider {
+    width: 90px;
+    height: 1px;
+
+    margin: 20px auto 0;
+    background: #d5b5f5;
+
+    box-shadow:
+        0 0 8px #d8b4fe,
+        0 0 15px #9333ea;
+}
+
+
+/* 14. SCENE VISUAL */
+
+.scene-visual {
+    position: relative;
+    flex-shrink: 0;
+
+    width: min(85%, 420px);
+    aspect-ratio: 16 / 9;
+
+    margin: 0 auto;
+    overflow: hidden;
+
+    border: 1px solid rgba(216, 180, 254, 0.5);
+    border-radius: 12px;
+
+    background: rgba(30, 20, 45, 0.8);
+
+    box-shadow:
+        0 0 10px rgba(168, 85, 247, 0.25),
+        0 0 25px rgba(147, 51, 234, 0.15);
+
+    animation: visualEntrance 0.6s ease both;
+}
+
+.scene-visual img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.5s ease;
+}
+
+.scene-visual img:hover {
+    transform: scale(1.025);
+}
+
+
+/* 15. DIALOGUE BOX */
+
+.dialogue-container {
+    flex-shrink: 0;
+
+    width: 100%;
+    max-width: 780px;
+
+    margin: 0 auto 12px;
+}
+
+.dialogue-box {
+    position: relative;
+
+    width: 100%;
+    min-height: 175px;
+
+    padding: 24px 25px 55px;
+
+    background: rgba(16, 11, 27, 0.88);
+    border: 1px solid rgba(205, 169, 239, 0.55);
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.28),
+        0 0 20px rgba(164, 108, 220, 0.12);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.character-name {
+    display: inline-block;
+
+    color: #d9b5ff;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+
+    text-shadow: 0 0 10px rgba(195, 140, 255, 0.6);
+}
+
+.dialogue-text {
+    color: #eee5f7;
+    font-size: 15px;
+    line-height: 1.9;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+
+/* DIALOGUE TEXT SIZE */
+
+.dialogue-text.text-size-small {
+    font-size: 12px;
+}
+
+.dialogue-text.text-size-medium {
+    font-size: 15px;
+}
+
+.dialogue-text.text-size-large {
+    font-size: 18px;
+}
+
+.next-button {
+    position: absolute;
+    right: 22px;
+    bottom: 15px;
+
+    padding: 8px 12px;
+
+    background: transparent;
+    border: none;
+
+    color: #e4c9ff;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+
+    cursor: pointer;
+    animation: nextPulse 1.8s ease-in-out infinite;
+}
+
+.next-button:hover {
+    color: white;
+}
+
+
+/* 16. CHOICE BUTTONS */
+
+.choices-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 100%;
+    margin-top: 14px;
+
+    animation: choiceEntrance 0.4s ease both;
+}
+
+.choice-button {
+    width: 100%;
+    padding: 15px 18px;
+
+    background: rgba(35, 21, 53, 0.9);
+    border: 1px solid rgba(203, 165, 238, 0.55);
+
+    color: #f0e4ff;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.6;
+    letter-spacing: 0.7px;
+
+    text-align: left;
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.choice-button:hover {
+    background: rgba(114, 67, 158, 0.55);
+    border-color: #e6caff;
+    transform: translateX(4px);
+
+    box-shadow: 0 0 16px rgba(185, 130, 245, 0.2);
+}
+
+.choice-button:active {
+    transform: scale(0.98);
+}
+
+.choice-button:focus-visible {
+    outline: 2px solid #e6caff;
+    outline-offset: 3px;
+}
+
+
+/* 17. STORY FOOTER */
+
+.story-footer {
+    position: relative;
+    z-index: 1;
+
+    flex-shrink: 0;
+    width: 100%;
+    padding: 10px;
+
+    color: #c5aedb;
+    font-family: Arial, sans-serif;
+    font-size: 8px;
+    letter-spacing: 3px;
+
+    text-align: center;
+    opacity: 0.7;
+}
+
+
+/* 18. ANIMATIONS */
+
+@keyframes menuEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes overlayFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes dialogEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes purpleGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes purpleGlow {
+    from {
+        opacity: 0.55;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+
+@keyframes headingGlow {
+    from {
+        text-shadow:
+            0 0 5px #d8b4fe,
+            0 0 10px #a855f7,
+            0 0 20px #9333ea;
+    }
+
+    to {
+        text-shadow:
+            0 0 8px #ffffff,
+            0 0 15px #d8b4fe,
+            0 0 28px #a855f7,
+            0 0 42px rgba(147, 51, 234, 0.9);
+    }
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+
+    15% { opacity: 0.8; }
+    85% { opacity: 0.55; }
+
+    100% {
+        transform: translateY(-110vh) translateX(35px);
+        opacity: 0;
+    }
+}
+
+@keyframes nextPulse {
+    0%, 100% { opacity: 0.75; }
+    50% { opacity: 1; }
+}
+
+@keyframes choiceEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes visualEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scene-changing {
+    animation: sceneFade 0.35s ease;
+}
+
+@keyframes sceneFade {
+    from {
+        opacity: 0.3;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* 19. MOBILE RESPONSIVENESS */
+
+@media (max-width: 480px) {
+
+    .menu-content {
+        padding: 20px;
+    }
+
+    .title-label {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .game-title {
+        font-size: clamp(32px, 9vw, 44px);
+        letter-spacing: 4px;
+    }
+
+    .game-title span {
+        letter-spacing: 9px;
+    }
+
+    .game-subtitle {
+        font-size: 13px;
+        letter-spacing: 1px;
+    }
+
+    .menu-buttons {
+        max-width: 260px;
+    }
+
+    .menu-button {
+        min-height: 46px;
+        font-size: 11px;
+    }
+
+    .menu-footer {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .dialog-box {
+        padding: 25px 19px;
+    }
+
+    .credits-project-title {
+        font-size: 19px;
+        letter-spacing: 2px;
+    }
+
+    .credits-content {
+        font-size: 11px;
+        line-height: 1.75;
+    }
+
+    .credits-content h4 {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .credits-copyright {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .story-header {
+        padding: 12px;
+    }
+
+    .story-brand,
+    .scene-counter {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+    .story-menu-button {
+        padding: 8px;
+        font-size: 9px;
+    }
+
+    .story-content {
+        padding: 14px 14px 8px;
+        gap: 14px;
+    }
+
+    .scene-heading {
+        font-size: clamp(23px, 7vw, 32px);
+        letter-spacing: 2px;
+    }
+
+    .scene-type {
+        font-size: 8px;
+    }
+
+    .story-divider {
+        margin-top: 14px;
+    }
+
+    .scene-visual {
+        width: 95%;
+        max-width: 360px;
+        border-radius: 9px;
+    }
+
+    .dialogue-box {
+        min-height: 165px;
+        padding: 20px 17px 50px;
+    }
+
+    .dialogue-text {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .dialogue-text.text-size-small {
+        font-size: 11px;
+    }
+
+    .dialogue-text.text-size-medium {
+        font-size: 13px;
+    }
+
+    .dialogue-text.text-size-large {
+        font-size: 16px;
+    }
+
+    .choice-button {
+        padding: 13px;
+        font-size: 11px;
+    }
+
+    .story-footer {
+        padding: 8px;
+    }
+}
+
+
+/* 20. LANDSCAPE PHONE RESPONSIVENESS */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .menu-content {
+        padding: 10px;
+    }
+
+    .title-container {
+        margin-bottom: 10px;
+    }
+
+    .title-label {
+        font-size: 8px;
+        margin-bottom: 5px;
+    }
+
+    .game-title {
+        font-size: clamp(27px, 6vh, 38px);
+        letter-spacing: 3px;
+    }
+
+    .game-title span {
+        letter-spacing: 7px;
+        margin-top: 3px;
+    }
+
+    .game-subtitle {
+        font-size: 11px;
+        margin-top: 6px;
+    }
+
+    .title-divider {
+        margin-top: 8px;
+    }
+
+    .menu-buttons {
+        max-width: 240px;
+        gap: 5px;
+    }
+
+    .menu-button {
+        min-height: 32px;
+        padding: 6px 12px;
+        font-size: 10px;
+    }
+
+    .menu-footer {
+        margin-top: 9px;
+        font-size: 7px;
+    }
+
+    .story-header {
+        padding: 7px 15px;
+    }
+
+    .story-content {
+        padding: 8px 18px;
+        gap: 10px;
+    }
+
+    .scene-title-container {
+        margin-top: 0;
+    }
+
+    .scene-type {
+        margin-bottom: 4px;
+    }
+
+    .scene-heading {
+        font-size: 25px;
+    }
+
+    .story-divider {
+        margin-top: 8px;
+    }
+
+    .scene-visual {
+        width: min(50%, 280px);
+    }
+
+    .dialogue-container {
+        margin-bottom: 0;
+    }
+
+    .dialogue-box {
+        min-height: 115px;
+        padding: 12px 17px 38px;
+    }
+
+    .character-name {
+        margin-bottom: 5px;
+    }
+
+    .dialogue-text {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .next-button {
+        right: 12px;
+        bottom: 5px;
+    }
+
+    .choices-container {
+        gap: 5px;
+        margin-top: 5px;
+    }
+
+    .choice-button {
+        padding: 7px 12px;
+    }
+
+    .story-footer {
+        padding: 4px;
+    }
+}
+
+
+/* 21. SHORT PORTRAIT SCREENS */
+
+@media (max-height: 650px) and (orientation: portrait) {
+
+    .menu-content {
+        padding: 12px;
+    }
+
+    .title-container {
+        margin-bottom: 16px;
+    }
+
+    .title-label {
+        margin-bottom: 8px;
+    }
+
+    .game-title {
+        font-size: 36px;
+    }
+
+    .game-subtitle {
+        margin-top: 8px;
+    }
+
+    .title-divider {
+        margin-top: 12px;
+    }
+
+    .menu-buttons {
+        gap: 6px;
+    }
+
+    .menu-button {
+        min-height: 36px;
+        padding: 8px;
+    }
+
+    .menu-footer {
+        margin-top: 14px;
+    }
+
+    .story-content {
+        padding-top: 8px;
+        padding-bottom: 5px;
+        gap: 12px;
+    }
+
+    .scene-title-container {
+        margin-top: 3px;
+    }
+
+    .story-divider {
+        margin-top: 10px;
+    }
+
+    .scene-visual {
+        width: min(85%, 320px);
+    }
+
+    .dialogue-box {
+        min-height: 145px;
+    }
+}
+
+
+/* 22. REDUCED MOTION */
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+}
+
+
+/* 23. ACCESSIBILITY */
+
+@media (hover: none) {
+
+    .menu-button:hover,
+    .choice-button:hover,
+    .story-menu-button:hover,
+    .dialog-close:hover {
+        transform: none;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
+
+
+/* =========================================
+   END OF STYLESHEET
+========================================= */
