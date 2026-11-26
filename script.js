@@ -732,7 +732,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         END_01: {
             title: "THE QUIET CANVAS",
-            type: "ENDING 01",
+            type: "ENDING",
             visual: "./assets/visuals/the-quiet-canvas.png",
 
             dialogue: [
@@ -760,7 +760,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         END_02: {
             title: "THE ART OF BEING",
-            type: "ENDING 02",
+            type: "ENDING",
             visual: "./assets/visuals/the-art-of-being.png",
 
             dialogue: [
@@ -788,7 +788,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         END_03: {
             title: "A SPECTRUM OF VOICES",
-            type: "ENDING 03",
+            type: "ENDING",
             visual: "./assets/visuals/a-spectrum-of-voices.png",
 
             dialogue: [
@@ -816,7 +816,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         END_04: {
             title: "FINDING PEACE",
-            type: "ENDING 04",
+            type: "ENDING",
             visual: "./assets/visuals/finding-peace.png",
 
             dialogue: [
@@ -844,7 +844,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         END_05: {
             title: "THE VOICE THAT INSPIRES",
-            type: "ENDING 05",
+            type: "ENDING",
             visual: "./assets/visuals/the-voice-that-inspires.png",
 
             dialogue: [
@@ -872,7 +872,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         END_06: {
             title: "THE ART OF SELF-EXPRESSION",
-            type: "ENDING 06",
+            type: "ENDING",
             visual: "./assets/visuals/the-art-of-self-expression.png",
 
             dialogue: [
@@ -900,7 +900,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         END_07: {
             title: "THE UNFINISHED CONVERSATION",
-            type: "ENDING 07",
+            type: "ENDING",
             visual: "./assets/visuals/the-unfinished-conversation.png",
 
             dialogue: [
@@ -928,7 +928,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         END_08: {
             title: "A THOUSAND WAYS TO BE",
-            type: "ENDING 08",
+            type: "ENDING",
             visual: "./assets/visuals/a-thousand-ways-to-be.png",
 
             dialogue: [
@@ -1363,6 +1363,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return Math.round(
             (completed / TOTAL_SCENES) * 100
         );
+
     }
 
 
@@ -1384,7 +1385,7 @@ document.addEventListener("DOMContentLoaded", () => {
             getCompletionPercentage(progress);
 
 
-        const endingCards = ENDING_IDS.map((id, index) => {
+        const endingCards = ENDING_IDS.map(id => {
 
             const discovered =
                 progress.discoveredEndings.includes(id);
@@ -1400,10 +1401,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <span class="progress-ending-icon">
                         ${discovered ? "✦" : "🔒"}
-                    </span>
-
-                    <span class="progress-ending-number">
-                        ENDING ${index + 1}
                     </span>
 
                     <strong>
